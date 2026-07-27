@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
      bool isRunning = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && isMoving;
 
      animator.SetFloat("Speed", movement.magnitude);
-     animator.SetBool("isWalking", isMoving);
+     
      animator.SetBool("isRunning", isRunning);
 
     if (movement != Vector3.zero)
