@@ -6,7 +6,10 @@ public class CameraController : MonoBehaviour
     public float MouseSensivity;
     private float rotationX;
     private float rotationY;
+    private float minVerticalAngle = -20f;
+    private float maxVerticalAngle = 45f;
     private float startDelay = 0.2f;
+
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,9 +34,12 @@ public class CameraController : MonoBehaviour
         return;
     }
 
-    rotationY += Input.GetAxis("Mouse X") * MouseSensivity * Time.deltaTime;
-    rotationX -= Input.GetAxis("Mouse Y") * MouseSensivity * Time.deltaTime;
+ rotationX -= Input.GetAxis("Mouse Y") * MouseSensivity * Time.deltaTime;
 
-    transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
+ rotationX = Mathf.Clamp(rotationX, minVerticalAngle, maxVerticalAngle);
+
+ rotationY += Input.GetAxis("Mouse X") * MouseSensivity * Time.deltaTime;
+
+ transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
 }
 }
