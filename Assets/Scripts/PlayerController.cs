@@ -2,14 +2,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 3.0f;
-    public float runSpeed = 7f;
+    public float Speed = 3.0f;
+    public float RunSpeed = 7f;
     private Animator animator;
+    private CharacterController controller;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         animator = GetComponent<Animator>();
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -34,6 +36,6 @@ public class PlayerController : MonoBehaviour
 
     float currentSpeed = isRunning ? runSpeed : speed;
 
-    transform.Translate(movement * currentSpeed * Time.deltaTime, Space.World);
+    controller.Move(movement * currentSpeed * Time.deltaTime);
     }
 }
