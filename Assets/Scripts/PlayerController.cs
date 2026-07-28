@@ -4,6 +4,8 @@ public class PlayerController : MonoBehaviour
 {
     public float Speed = 3.0f;
     public float RunSpeed = 7f;
+    public Transform CameraTransform;
+
     private Animator animator;
     private CharacterController controller;
     
@@ -20,7 +22,16 @@ public class PlayerController : MonoBehaviour
      float horizontalInput = Input.GetAxis("Horizontal");
      float verticalInput = Input.GetAxis("Vertical");
 
-     Vector3 movement = new Vector3(horizontalInput, 0, verticalInput);
+     Vector3 forward = CameraTransform.forward;
+     Vector3 right = CameraTransform.right;
+
+     forward.y = 0;
+     right.y = 0;
+
+     forward.Normalize();
+     right.Normalize();
+
+     Vector3 movement = forward * verticalInput + right * horizontalInput;
 
      bool isMoving = horizontalInput != 0 || verticalInput != 0;
      bool isRunning = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && isMoving;
@@ -34,7 +45,7 @@ public class PlayerController : MonoBehaviour
      transform.rotation = Quaternion.LookRotation(movement);
     }
 
-    float currentSpeed = isRunning ? runSpeed : speed;
+    float currentSpeed = isRunning ? RunSpeed : Speed;
 
     controller.Move(movement * currentSpeed * Time.deltaTime);
     }
