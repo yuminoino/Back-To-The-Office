@@ -6,6 +6,8 @@ public class CameraController : MonoBehaviour
     public float MouseSensivity;
     private float rotationX;
     private float rotationY;
+    private float startDelay = 0.2f;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,16 +16,24 @@ public class CameraController : MonoBehaviour
 
         rotationX = transform.eulerAngles.x;
         rotationY = transform.eulerAngles.y;
+        
     }
 
     // Update is called once per frame
-    void LateUpdate()
+ void LateUpdate()
+{
+    transform.position = Target.position;
+
+    if (startDelay > 0)
     {
-        transform.position = Target.position;
-
-        rotationY += Input.GetAxis("Mouse X") * MouseSensivity * Time.deltaTime;
-        rotationX -= Input.GetAxis("Mouse Y") * MouseSensivity * Time.deltaTime;
-
+        startDelay -= Time.deltaTime;
         transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
+        return;
     }
+
+    rotationY += Input.GetAxis("Mouse X") * MouseSensivity * Time.deltaTime;
+    rotationX -= Input.GetAxis("Mouse Y") * MouseSensivity * Time.deltaTime;
+
+    transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
+}
 }
