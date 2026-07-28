@@ -4,6 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     public float Speed = 3.0f;
     public float RunSpeed = 7f;
+    public float RotationSpeed = 10f;
     public Transform CameraTransform;
 
     private Animator animator;
@@ -42,7 +43,9 @@ public class PlayerController : MonoBehaviour
 
     if (movement != Vector3.zero)
     {
-     transform.rotation = Quaternion.LookRotation(movement);
+     Quaternion targetRotation = Quaternion.LookRotation(movement);
+
+     transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, RotationSpeed * Time.deltaTime);
     }
 
     float currentSpeed = isRunning ? RunSpeed : Speed;

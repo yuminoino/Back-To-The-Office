@@ -11,6 +11,9 @@ public class CameraController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        rotationX = transform.eulerAngles.x;
+        rotationY = transform.eulerAngles.y;
     }
 
     // Update is called once per frame
