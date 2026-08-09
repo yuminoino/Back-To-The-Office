@@ -11,8 +11,16 @@ public class InteractionZone : MonoBehaviour
     {
         if (playerInside && Input.GetKeyDown(KeyCode.E))
         {
-            InteractionText.SetActive(false);
-            DialogueObject.SetActive(true);
+            if (DialogueObject.activeSelf)
+            {
+                DialogueObject.SetActive(false);
+                InteractionText.SetActive(true);
+            }
+            else
+            {
+                InteractionText.SetActive(false);
+                DialogueObject.SetActive(true);
+            }
         }
     }
 
@@ -30,7 +38,6 @@ public class InteractionZone : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInside = false;
-
             InteractionText.SetActive(false);
             DialogueObject.SetActive(false);
         }
