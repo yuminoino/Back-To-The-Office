@@ -3,8 +3,6 @@ using UnityEngine;
 public class ComputerInteraction : MonoBehaviour
 {
     public GameObject ComputerUI;
-    public Transform CameraPoint;
-    public Camera PlayerCamera;
 
     public PlayerController PlayerController;
     public CameraController CameraController;
@@ -13,9 +11,6 @@ public class ComputerInteraction : MonoBehaviour
 
     private bool playerInside;
     private bool computerOpen;
-
-    private Vector3 originalCameraPosition;
-    private Quaternion originalCameraRotation;
 
     void Update()
     {
@@ -53,12 +48,6 @@ public class ComputerInteraction : MonoBehaviour
 
     private void OpenComputer()
     {
-        originalCameraPosition = PlayerCamera.transform.position;
-        originalCameraRotation = PlayerCamera.transform.rotation;
-
-        PlayerCamera.transform.position = CameraPoint.position;
-        PlayerCamera.transform.rotation = CameraPoint.rotation;
-
         ComputerUI.SetActive(true);
 
         PlayerController.enabled = false;
@@ -74,14 +63,11 @@ public class ComputerInteraction : MonoBehaviour
     {
         ComputerUI.SetActive(false);
 
-        PlayerCamera.transform.position = originalCameraPosition;
-        PlayerCamera.transform.rotation = originalCameraRotation;
-
         PlayerController.enabled = true;
         CameraController.enabled = true;
 
-        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         computerOpen = false;
     }
