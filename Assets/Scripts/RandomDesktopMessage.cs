@@ -3,7 +3,7 @@ using TMPro;
 
 public class RandomDesktopMessage : MonoBehaviour
 {
-    public TextMeshproUI RandomText;
+    public TextMeshProUGUI RandomText;
     public string[] Messages =
     {
         "DON'T bE PESSIMISTIC!",
