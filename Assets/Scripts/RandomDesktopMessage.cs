@@ -1,39 +1,44 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 
 public class RandomDesktopMessage : MonoBehaviour
 {
     public TextMeshProUGUI RandomText;
+
     public string[] Messages =
     {
         "DON'T bE PESSIMISTIC!",
-        "YOU HAVE A FrIEND HERE",
+        "YOU HAVE A FRIEND HERE",
         "YOU SEE EVERYTHING IN GRaY",
         "vOID",
-        "YOU CAN'T eXIT",
+        "YOU CAN'T EXIT",
         "HELLO?",
-        "CAN YOU HEAR ME?",
+        "CAN YOU HEAR Me?",
         "I MISS WHO I USED TO BE",
-        "THIS PLACE IS STILL HERE. THEY AREN'T",
-        "DESPITE EVERYTHING, IT'S STILL YOU",
+        "THIS PLACE IS STILL HErE. THEY AREN'T",
+        "NOT NOW"
     };
+
+    private List<string> availableMessages;
+
+    void Start()
+    {
+        availableMessages = new List<string>(Messages);
+    }
 
     public void ShowRandomMessage()
     {
-        int randomIndex = Random.Range(0, Messages.Length);
+        if (availableMessages.Count == 0)
+        {
+            availableMessages = new List<string>(Messages);
+        }
 
-        RandomText.text = Messages[randomIndex];
+        int random = Random.Range(0, availableMessages.Count);
+
+        RandomText.text = availableMessages[random];
         RandomText.gameObject.SetActive(true);
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        availableMessages.RemoveAt(random);
     }
 }
