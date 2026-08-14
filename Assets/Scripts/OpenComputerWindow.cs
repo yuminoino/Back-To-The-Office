@@ -6,6 +6,7 @@ public class OpenComputerWindow : MonoBehaviour
     public GameObject ComputerWindow;
     public GameObject PasswordWindow;
     public TMP_InputField PasswordInput;
+    public TextMeshProUGUI Phrase;
 
     private string password = "brave";
 
@@ -21,6 +22,10 @@ public class OpenComputerWindow : MonoBehaviour
             PasswordWindow.SetActive(false);
             ComputerWindow.SetActive(true);
         }
+         else
+       {
+        Phrase.text = "THE END IS NEAR";
+       }
     }
 
     void Update()
