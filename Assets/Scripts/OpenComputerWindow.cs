@@ -7,7 +7,7 @@ public class OpenComputerWindow : MonoBehaviour
     public GameObject PasswordWindow;
     public TMP_InputField PasswordInput;
 
-    private string Password = "brave";
+    private string password = "brave";
 
     public void Open()
     {
@@ -16,10 +16,18 @@ public class OpenComputerWindow : MonoBehaviour
 
     public void CheckPassword()
     {
-        if (PasswordInput.text == Password)
+        if (PasswordInput.text == password)
         {
             PasswordWindow.SetActive(false);
             ComputerWindow.SetActive(true);
+        }
+    }
+
+    void Update()
+    {
+        if (PasswordWindow.activeSelf && Input.GetKeyDown(KeyCode.Return))
+        {
+            CheckPassword();
         }
     }
 }
