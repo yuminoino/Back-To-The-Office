@@ -813,6 +813,40 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.018995246, y: 0.0029273618, z: 0.0029713518}
   m_Center: {x: 0.000010151479, y: 0.0006437448, z: 0.0006180806}
+--- !u!114 &111666471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111666465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff33a08375946d42951d86dd0c7926c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InspectionPoint: {fileID: 500425847}
+--- !u!135 &111666472
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111666465}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.009497623
+  m_Center: {x: 0.00001015142, y: 0.000008316827, z: -0.000009698765}
 --- !u!1 &117928675
 GameObject:
   m_ObjectHideFlags: 0
@@ -5792,6 +5826,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b0d1ca9de9f6c97429187d85cb7fb057, type: 3}
       insertIndex: -1
       addedObject: {fileID: 111666470}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b0d1ca9de9f6c97429187d85cb7fb057, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 111666472}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b0d1ca9de9f6c97429187d85cb7fb057, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 111666471}
   m_SourcePrefab: {fileID: 100100000, guid: b0d1ca9de9f6c97429187d85cb7fb057, type: 3}
 --- !u!1 &1044650535
 GameObject:
@@ -6064,11 +6104,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1124037808}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a91eaa0fcea01dd47b0f48194da32f80, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f532385f0d79c94e9d268426c91c75c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerCamera: {fileID: 330585545}
-  InteractionDistance: 3
 --- !u!1 &1131880171
 GameObject:
   m_ObjectHideFlags: 0
