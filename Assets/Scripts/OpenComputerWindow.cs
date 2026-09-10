@@ -12,7 +12,14 @@ public class OpenComputerWindow : MonoBehaviour
 
     public void Open()
     {
-        PasswordWindow.SetActive(true);
+        if (PasswordWindow != null)
+        {
+            PasswordWindow.SetActive(true);
+        }
+        else
+        {
+            ComputerWindow.SetActive(true);
+        }
     }
 
     public void CheckPassword()
@@ -22,15 +29,15 @@ public class OpenComputerWindow : MonoBehaviour
             PasswordWindow.SetActive(false);
             ComputerWindow.SetActive(true);
         }
-         else
-       {
-        Phrase.text = "THE END IS NEAR";
-       }
+        else
+        {
+            Phrase.text = "THE END IS NEAR";
+        }
     }
 
     void Update()
     {
-        if (PasswordWindow.activeSelf && Input.GetKeyDown(KeyCode.Return))
+        if (PasswordWindow != null && PasswordWindow.activeSelf && Input.GetKeyDown(KeyCode.Return))
         {
             CheckPassword();
         }
