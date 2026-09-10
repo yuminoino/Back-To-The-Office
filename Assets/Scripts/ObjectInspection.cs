@@ -2,15 +2,20 @@ using UnityEngine;
 
 public class ObjectInspection : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public Transform InspectionPoint;
 
-    // Update is called once per frame
-    void Update()
+    private Transform originalParent;
+    private Vector3 originalPosition;
+    private Quaternion originalRotation;
+
+    public void PickUp()
     {
-        
+        originalParent = transform.parent;
+        originalPosition = transform.position;
+        originalRotation = transform.rotation;
+
+        transform.SetParent(InspectionPoint);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
     }
 }
