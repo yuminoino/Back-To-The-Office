@@ -4,6 +4,7 @@ public class ObjectInspection : MonoBehaviour
 {
     public Transform InspectionPoint;
     public float RotationSpeed = 100f;
+    public float ZoomSpeed = 2f;
 
     private bool isInspecting;
 
@@ -41,6 +42,15 @@ public class ObjectInspection : MonoBehaviour
 
         transform.Rotate(Vector3.up, -mouseX * RotationSpeed * Time.deltaTime, Space.World);
         transform.Rotate(Vector3.right, mouseY * RotationSpeed * Time.deltaTime, Space.Self);
+
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        Vector3 position = transform.localPosition;
+        position.z -= scroll * ZoomSpeed;
+
+        position.z = Mathf.Clamp(position.z, -1f, 0f);
+
+        transform.localPosition = position;
     }
 
     public void EndInspection()
