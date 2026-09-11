@@ -25,7 +25,7 @@ public class InspectionZone : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInside = true;
-            Debug.Log("PLAYER È VICINO ALLA MATITA");
+            Debug.Log("PLAYER È VICINO A" + gameObject.name);
         }
     }
 
@@ -34,7 +34,7 @@ public class InspectionZone : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInside = false;
-            Debug.Log("PLAYER SI È ALLONTANATO");
+            Debug.Log("PLAYER SI È ALLONTANATO DA" + gameObject.name);
         }
     }
 }

@@ -26,7 +26,7 @@ public class ObjectInspection : MonoBehaviour
 
         if (gameManager != null)
         {
-            gameManager.StartInspection();
+            gameManager.StartInspection(this);
         }
 
         isInspecting = true;

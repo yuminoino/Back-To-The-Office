@@ -8,13 +8,16 @@ public class GameManager : MonoBehaviour
     public CameraController CameraController;
     public GameObject mesh_node;
 
+    private ObjectInspection currentInspection;
+
     void Start()
     {
         Cursor.visible = false;
     }
 
-    public void StartInspection()
+    public void StartInspection(ObjectInspection inspection)
     {
+        currentInspection = inspection;
         IsInspecting = true;
 
         PlayerController.enabled = false;
@@ -41,11 +44,10 @@ public class GameManager : MonoBehaviour
     {
         if (IsInspecting && Input.GetKeyDown(KeyCode.Escape))
         {
-            ObjectInspection inspection = FindFirstObjectByType<ObjectInspection>();
-
-            if (inspection != null)
+            if (currentInspection != null)
             {
-                inspection.EndInspection();
+                currentInspection.EndInspection();
+                currentInspection = null;
             }
 
             EndInspection();
