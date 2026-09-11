@@ -9,6 +9,8 @@ public class OpenComputerWindow : MonoBehaviour
     public TextMeshProUGUI Phrase;
 
     private string password = "brave";
+    private string password2 = "WDMHFSB?";
+    private string password3 = "remember";
 
     public void Open()
     {
