@@ -8,10 +8,6 @@ public class OpenComputerWindow : MonoBehaviour
     public TMP_InputField PasswordInput;
     public TextMeshProUGUI Phrase;
 
-    private string password = "brave";
-    private string password2 = "WDMHFSB?";
-    private string password3 = "remember";
-
     public void Open()
     {
         if (PasswordWindow != null)
@@ -26,10 +22,20 @@ public class OpenComputerWindow : MonoBehaviour
 
     public void CheckPassword()
     {
-        if (PasswordInput.text == password)
+        if (PasswordInput.text == "brave")
         {
             PasswordWindow.SetActive(false);
             ComputerWindow.SetActive(true);
+        }
+        else if (PasswordInput.text == "WDMHFSB?")
+        {
+            PasswordWindow.SetActive(false);
+            GameObject.Find("ComputerWindow_User02").SetActive(true);
+        }
+        else if (PasswordInput.text == "remember")
+        {
+            PasswordWindow.SetActive(false);
+            GameObject.Find("ComputerWindow_User03").SetActive(true);
         }
         else
         {
