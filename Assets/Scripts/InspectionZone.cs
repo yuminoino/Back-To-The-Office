@@ -10,12 +10,13 @@ public class InspectionZone : MonoBehaviour
     {
         if (playerInside && Input.GetKeyDown(KeyCode.E))
         {
-            transform.SetParent(InspectionPoint);
+            ObjectInspection inspection = GetComponent<ObjectInspection>();
 
-            transform.localPosition = Vector3.zero;
-            transform.localRotation = Quaternion.identity;
-
-            Debug.Log("MATITA PRESA");
+            if (inspection != null)
+            {
+                inspection.PickUp();
+                Debug.Log("MATITA PRESA");
+            }
         }
     }
 
