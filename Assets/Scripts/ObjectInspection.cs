@@ -3,6 +3,7 @@ using UnityEngine;
 public class ObjectInspection : MonoBehaviour
 {
     public Transform InspectionPoint;
+    public GameObject DialogueObject;
     public float RotationSpeed = 100f;
     public float ZoomSpeed = 2f;
 
@@ -21,6 +22,11 @@ public class ObjectInspection : MonoBehaviour
         transform.SetParent(InspectionPoint);
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
+
+        if (DialogueObject != null)
+        {
+            DialogueObject.SetActive(true);
+        }
 
         GameManager gameManager = FindFirstObjectByType<GameManager>();
 
@@ -56,6 +62,11 @@ public class ObjectInspection : MonoBehaviour
     public void EndInspection()
     {
         isInspecting = false;
+
+        if (DialogueObject != null)
+        {
+            DialogueObject.SetActive(false);
+        }
 
         transform.SetParent(originalParent);
         transform.position = originalPosition;

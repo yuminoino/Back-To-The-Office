@@ -4,7 +4,6 @@ public class InspectionZone : MonoBehaviour
 {
     public Transform InspectionPoint;
     public GameObject InteractionText;
-    public GameObject DialogueObject;
 
     private bool playerInside;
 
@@ -13,7 +12,6 @@ public class InspectionZone : MonoBehaviour
         if (playerInside && Input.GetKeyDown(KeyCode.E))
         {
             InteractionText.SetActive(false);
-            DialogueObject.SetActive(true);
 
             ObjectInspection inspection = GetComponent<ObjectInspection>();
 
@@ -32,7 +30,6 @@ public class InspectionZone : MonoBehaviour
             playerInside = true;
 
             InteractionText.SetActive(true);
-            DialogueObject.SetActive(false);
 
             Debug.Log("PLAYER È VICINO A " + gameObject.name);
         }
@@ -45,7 +42,6 @@ public class InspectionZone : MonoBehaviour
             playerInside = false;
 
             InteractionText.SetActive(false);
-            DialogueObject.SetActive(false);
 
             Debug.Log("PLAYER SI È ALLONTANATO DA " + gameObject.name);
         }
