@@ -5,9 +5,12 @@ public class DoorPassword : MonoBehaviour
 {
     public GameObject PasswordWindow;
     public TMP_InputField PasswordInput;
-    public Transform TeleportPoint;
 
-    public string Password = "1234";
+    public string Password1 = "1234";
+    public Transform TeleportPoint1;
+
+    public string Password2 = "5678";
+    public Transform TeleportPoint2;
 
     private bool playerInside;
 
@@ -27,6 +30,7 @@ public class DoorPassword : MonoBehaviour
     public void Open()
     {
         PasswordWindow.SetActive(true);
+
         PasswordInput.text = "";
         PasswordInput.ActivateInputField();
 
@@ -36,37 +40,46 @@ public class DoorPassword : MonoBehaviour
 
     public void CheckPassword()
     {
-        if (PasswordInput.text == Password)
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player == null)
+            return;
+
+        Transform destination = null;
+
+        if (PasswordInput.text == Password1)
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-            if (player != null)
-            {
-                CharacterController controller = player.GetComponent<CharacterController>();
-
-                if (controller != null)
-                {
-                    controller.enabled = false;
-                }
-
-                player.transform.position = TeleportPoint.position;
-                player.transform.rotation = TeleportPoint.rotation;
-
-                if (controller != null)
-                {
-                    controller.enabled = true;
-                }
-            }
-
-            PasswordWindow.SetActive(false);
-
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            destination = TeleportPoint1;
+        }
+        else if (PasswordInput.text == Password2)
+        {
+            destination = TeleportPoint2;
         }
         else
         {
             Debug.Log("PASSWORD SBAGLIATA");
+            return;
         }
+
+        CharacterController controller = player.GetComponent<CharacterController>();
+
+        if (controller != null)
+        {
+            controller.enabled = false;
+        }
+
+        player.transform.position = destination.position;
+        player.transform.rotation = destination.rotation;
+
+        if (controller != null)
+        {
+            controller.enabled = true;
+        }
+
+        PasswordWindow.SetActive(false);
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void OnTriggerEnter(Collider other)
