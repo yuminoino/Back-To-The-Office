@@ -3,6 +3,8 @@ using UnityEngine;
 public class InspectionZone : MonoBehaviour
 {
     public Transform InspectionPoint;
+    public GameObject InteractionText;
+    public GameObject DialogueObject;
 
     private bool playerInside;
 
@@ -10,12 +12,15 @@ public class InspectionZone : MonoBehaviour
     {
         if (playerInside && Input.GetKeyDown(KeyCode.E))
         {
+            InteractionText.SetActive(false);
+            DialogueObject.SetActive(true);
+
             ObjectInspection inspection = GetComponent<ObjectInspection>();
 
             if (inspection != null)
             {
                 inspection.PickUp();
-                Debug.Log("MATITA PRESA");
+                Debug.Log("OGGETTO PRESO");
             }
         }
     }
@@ -25,7 +30,11 @@ public class InspectionZone : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInside = true;
-            Debug.Log("PLAYER È VICINO A" + gameObject.name);
+
+            InteractionText.SetActive(true);
+            DialogueObject.SetActive(false);
+
+            Debug.Log("PLAYER È VICINO A " + gameObject.name);
         }
     }
 
@@ -34,7 +43,11 @@ public class InspectionZone : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInside = false;
-            Debug.Log("PLAYER SI È ALLONTANATO DA" + gameObject.name);
+
+            InteractionText.SetActive(false);
+            DialogueObject.SetActive(false);
+
+            Debug.Log("PLAYER SI È ALLONTANATO DA " + gameObject.name);
         }
     }
 }
