@@ -14659,7 +14659,7 @@ MonoBehaviour:
   PasswordInput: {fileID: 1266101946}
   Password1: PANOPTIKUM
   TeleportPoint1: {fileID: 1388503794}
-  Password2: 5678
+  Password2: BDA
   TeleportPoint2: {fileID: 1850560783}
 --- !u!65 &1486415857
 BoxCollider:
