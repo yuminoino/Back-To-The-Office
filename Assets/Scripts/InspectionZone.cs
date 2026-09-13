@@ -43,7 +43,7 @@ public class InspectionZone : MonoBehaviour
 
             InteractionText.SetActive(false);
 
-            Debug.Log("PLAYER SI È ALLONTANATO DA " + gameObject.name);
+            Debug.Log("PLAYER IS FAR FROM" + gameObject.name);
         }
     }
 }

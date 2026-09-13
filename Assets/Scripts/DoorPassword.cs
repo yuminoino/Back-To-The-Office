@@ -6,10 +6,10 @@ public class DoorPassword : MonoBehaviour
     public GameObject PasswordWindow;
     public TMP_InputField PasswordInput;
 
-    public string Password1 = "1234";
+    public string Password1 = "PANOPTIKUM";
     public Transform TeleportPoint1;
 
-    public string Password2 = "5678";
+    public string Password2 = "BDA";
     public Transform TeleportPoint2;
 
     private bool playerInside;
@@ -57,7 +57,7 @@ public class DoorPassword : MonoBehaviour
         }
         else
         {
-            Debug.Log("PASSWORD SBAGLIATA");
+            Debug.Log("WRONG PASSWORD");
             return;
         }
 
