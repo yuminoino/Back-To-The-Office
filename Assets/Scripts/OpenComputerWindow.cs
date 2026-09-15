@@ -36,7 +36,7 @@ public class OpenComputerWindow : MonoBehaviour
 
     void Update()
     {
-        if (PasswordWindow != null && PasswordWindow.activeSelf && Input.GetKeyDown(KeyCode.Return))
+        if (PasswordWindow != null && PasswordWindow.activeSelf && Input.GetKeyDown(KeyCode.Return)) // Check if the password window is active and the enter key is pressed
         {
             CheckPassword();
         }

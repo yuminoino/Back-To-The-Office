@@ -14,11 +14,11 @@ public class PauseManager : MonoBehaviour
         {
             if (isPaused)
             {
-                Resume();
+                Resume(); // Resume the game if it is currently paused
             }
             else
             {
-                Pause();
+                Pause(); // Pause the game if it is currently running
             }
         }
     }
