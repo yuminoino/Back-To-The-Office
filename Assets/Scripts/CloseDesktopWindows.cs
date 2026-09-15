@@ -6,7 +6,7 @@ public class CloseDesktopWindows : MonoBehaviour
 
     public void CloseAll()
     {
-        foreach (GameObject window in Windows)
+        foreach (GameObject window in Windows) //for each window in the array of windows, set it to inactive
         {
             window.SetActive(false);
         }

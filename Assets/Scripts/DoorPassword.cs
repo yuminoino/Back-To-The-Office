@@ -31,7 +31,7 @@ public class DoorPassword : MonoBehaviour
     {
         PasswordWindow.SetActive(true);
 
-        PasswordInput.text = "";
+        PasswordInput.text = ""; // Clear the input field
         PasswordInput.ActivateInputField();
 
         Cursor.visible = true;
@@ -42,10 +42,10 @@ public class DoorPassword : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-        if (player == null)
+        if (player == null) // Check if the player object is found
             return;
 
-        Transform destination = null;
+        Transform destination = null; // Initialize destination to null
 
         if (PasswordInput.text == Password1)
         {
@@ -61,11 +61,11 @@ public class DoorPassword : MonoBehaviour
             return;
         }
 
-        CharacterController controller = player.GetComponent<CharacterController>();
+        CharacterController controller = player.GetComponent<CharacterController>(); // Get the CharacterController component
 
         if (controller != null)
         {
-            controller.enabled = false;
+            controller.enabled = false; // Disable the CharacterController to prevent physics issues during teleportation
         }
 
         player.transform.position = destination.position;

@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
     }
 
-    public void StartInspection(ObjectInspection inspection)
+    public void StartInspection(ObjectInspection inspection) 
     {
         currentInspection = inspection;
         IsInspecting = true;

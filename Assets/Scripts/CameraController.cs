@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform Target;
-    public float MouseSensivity;
+    public Transform Target; // The target object that the camera will follow (Steve's child lol)
+    public float MouseSensivity; 
     private float rotationX;
     private float rotationY;
     private float minVerticalAngle = -20f;
@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        rotationX = transform.eulerAngles.x;
+        rotationX = transform.eulerAngles.x; 
         rotationY = transform.eulerAngles.y;
         
     }
@@ -30,13 +30,13 @@ public class CameraController : MonoBehaviour
     if (startDelay > 0)
     {
         startDelay -= Time.deltaTime;
-        transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
+        transform.rotation = Quaternion.Euler(rotationX, rotationY, 0); //
         return;
     }
 
  rotationX -= Input.GetAxis("Mouse Y") * MouseSensivity * Time.deltaTime;
 
- rotationX = Mathf.Clamp(rotationX, minVerticalAngle, maxVerticalAngle);
+ rotationX = Mathf.Clamp(rotationX, minVerticalAngle, maxVerticalAngle); // limit the vertical rotation to prevent the camera from flipping over
 
  rotationY += Input.GetAxis("Mouse X") * MouseSensivity * Time.deltaTime;
 

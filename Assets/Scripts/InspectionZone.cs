@@ -13,12 +13,12 @@ public class InspectionZone : MonoBehaviour
         {
             InteractionText.SetActive(false);
 
-            ObjectInspection inspection = GetComponent<ObjectInspection>();
+            ObjectInspection inspection = GetComponent<ObjectInspection>(); // Get the ObjectInspection component attached to this object
 
             if (inspection != null)
             {
                 inspection.PickUp();
-                Debug.Log("OGGETTO PRESO");
+                Debug.Log("Picked up the object");
             }
         }
     }
@@ -31,7 +31,7 @@ public class InspectionZone : MonoBehaviour
 
             InteractionText.SetActive(true);
 
-            Debug.Log("PLAYER È VICINO A " + gameObject.name);
+            Debug.Log("Player is next to " + gameObject.name);
         }
     }
 
@@ -43,7 +43,7 @@ public class InspectionZone : MonoBehaviour
 
             InteractionText.SetActive(false);
 
-            Debug.Log("PLAYER IS FAR FROM" + gameObject.name);
+            Debug.Log("Player is far from" + gameObject.name);
         }
     }
 }
