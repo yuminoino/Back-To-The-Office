@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, RotationSpeed * Time.deltaTime); // Smoothly rotate the player towards the target rotation based on the RotationSpeed and Time.deltaTime
         }
 
-        float currentSpeed;
+        float currentSpeed; // Declare a variable to hold the current speed of the player
 
         if (isRunning)
         {
